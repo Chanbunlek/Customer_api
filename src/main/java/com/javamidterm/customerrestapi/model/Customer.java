@@ -1,4 +1,4 @@
-package com.javamidterm.productrestapi.model;
+package com.javamidterm.customerrestapi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 @Entity
 @Table(name = "product")
 @Data
-public class Product {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

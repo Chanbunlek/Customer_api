@@ -1,29 +1,29 @@
-package com.javamidterm.productrestapi.service;
+package com.javamidterm.customerrestapi.service;
 
-import com.javamidterm.productrestapi.model.Product;
-import com.javamidterm.productrestapi.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.javamidterm.customerrestapi.model.Customer;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductService implements IProduct{
-    final private ProductRepository productRepository;
+public class Customer implements ICustomer{
+    final private Customer productRepository;
 
     @Autowired
-    public ProductService(ProductRepository productRepository) {
+    public Customer(Customer productRepository) {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProducts(){
+    public List<Customer> getAllProducts(){
         return productRepository.findAll();
     }
 
     @Override
-    public Product getProductById(long id) {
-        Optional<Product> exist = productRepository.findById(id);
+    public Customer getProductById(long id) {
+        Optional<Customer> exist = productRepository.findById(id);
 
         if (exist.isEmpty()) {
             return null;
@@ -32,15 +32,15 @@ public class ProductService implements IProduct{
     }
 
     @Override
-    public List<Product> postProducts(Product product) {
+    public List<Customer> postProducts(Customer product) {
         productRepository.save(product);
         return productRepository.findAll();
     }
 
     @Override
-    public List<Product> updateProductById(long id, Product product) {
-        Optional<Product> exist = productRepository.findById(id);
-        Product newProduct = new Product();
+    public List<Customer> updateProductById(long id, Customer product) {
+        Optional<Customer> exist = productRepository.findById(id);
+        Customer newProduct = new Customer();
 
         if (exist.isEmpty()) {
             return null;
